@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 
-export const useMyHookTest = (value) => {
+export const useMyHook = (value) => {
   const [text, setText] = useState();
 
   useEffect(() => {
