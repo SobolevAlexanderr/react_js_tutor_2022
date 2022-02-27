@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import React, { Component, useState } from 'react';
-import Todo from './components/Todo/Todo';
+import TodoList from './components/Todo/Todo';
+import UserList from './components/Users/Users';
 import { Navbar } from './components/Navbar/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import 
@@ -23,7 +24,7 @@ class App extends Component {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/todo' element={<Todo />}/>
-          <Route path='/users' element={<Home />}/>
+          <Route path='/users' element={<Users />}/>
           <Route path='/account' element={<Home />}/>
         </Routes>
       </Router>
@@ -40,4 +41,20 @@ const Home = ()=> {
     </>
   )
 }
+
+const Todo = ()=> {
+  return(
+    <>
+      <TodoList uid={window.location.hash != '' ? window.location.hash.substring(1) : undefined} />
+    </>
+  )
+}
+const Users = ()=> {
+  return(
+    <>
+      <UserList />
+    </>
+  )
+}
+
 export default App;
